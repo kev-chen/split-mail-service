@@ -1,0 +1,36 @@
+
+service: split-email-service
+app: split-service
+org: kevchen
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: us-east-1
+  environment:
+    SEND_GRID_API_KEY: ${param:SEND_GRID_API_KEY}
+
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: hello
+          method: get
+          cors: true
+  sendMail:
+    handler: src/functions/api/v1/mail/sendMail.handler
+    events:
+      - http:
+          path: api/v1/mail
+          method: post
+          cors: true
+
+custom:
+  serverless-offline:
+    port: 3001
+
+plugins:
+  - serverless-offline

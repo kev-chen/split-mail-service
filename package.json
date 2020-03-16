@@ -1,0 +1,19 @@
+{
+  "name": "split-email-service",
+  "version": "1.0.0",
+  "description": "Email service for Split",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kevin Chen",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^6.5.4",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "serverless-offline": "^5.12.1"
+  }
+}
